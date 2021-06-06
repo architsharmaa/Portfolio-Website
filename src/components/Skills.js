@@ -9,7 +9,7 @@ import {
     FaInfinity,
     FaChartLine,
   } from "react-icons/fa";
-import { Box, Flex, Heading, HStack } from '@chakra-ui/react';
+import { Box, Flex, Heading, HStack, Center } from '@chakra-ui/react';
 import { useMediaQuery } from '@chakra-ui/media-query';
 
 function Skills() {
@@ -25,7 +25,7 @@ function Skills() {
                     Skills
                 </Heading>
             </Box>
-
+	<Center>
         <HStack alignSelf="flex-start" px="16" spacing={isNotSmallerScreen ? "8" : "2"} >
         <FaPython color="white" size={isNotSmallerScreen ? "50" : "20"} />
         <FaChartLine color="white" size={isNotSmallerScreen ? "50" : "20"} />
@@ -36,6 +36,7 @@ function Skills() {
         <FaGithub color="white" size={isNotSmallerScreen ? "50" : "20"} />
         <FaGitAlt color="white" size={isNotSmallerScreen ? "50" : "20"} />
         </HStack>
+	</Center>
 
         </Flex>
     );
