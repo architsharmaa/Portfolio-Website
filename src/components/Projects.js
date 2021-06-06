@@ -13,7 +13,7 @@ function Projects() {
     return (
 
         <Flex direction= "column" w="100%"
-        maxWidth={{ base: "100vh", lg: "130vh", xl: "130vh" }}
+        maxWidth={{ base: "200vh", lg: "130vh", xl: "130vh" }}
         py = '20'>
         
             <Box alignSelf="flex-start" px="16" py="8">
@@ -26,8 +26,9 @@ function Projects() {
                 </Text>
             </Box>
 
-            <ProjectPlatforms />
+
             <DSProject />
+            <ProjectPlatforms />
             <Web />
 
 

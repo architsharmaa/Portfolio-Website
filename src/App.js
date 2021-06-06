@@ -49,9 +49,10 @@ function App() {
       <Articles />
       <Skills />
       <Footer />
-
-
+      
+     
     </VStack>
+    
   );
 }
 

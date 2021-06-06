@@ -2,7 +2,7 @@ import React from 'react';
 import { useMediaQuery } from '@chakra-ui/media-query';
 import Icon from '@chakra-ui/icon';
 import { Box, Flex, Heading, HStack} from '@chakra-ui/layout';
-import { Spacer } from '@chakra-ui/react';
+import { Spacer, Collapse, Button, Center } from '@chakra-ui/react';
 import { ListItem, UnorderedList } from "@chakra-ui/react";
 import { Image } from '@chakra-ui/image';
 import { FaGithub, FaLink } from 'react-icons/fa';
@@ -13,6 +13,12 @@ import cleanmessy from '../assets/projectss/cleanmessy.png';
 function ProjectPlatforms(){
     
     const [isNotSmallerScreen] = useMediaQuery("(min-width:600px)");
+
+    const [show, setShow] = React.useState(false)
+    const handleToggle = () => setShow(!show)
+
+
+
  return(
 
     <Box alignSelf="flex-start" px="16" py="8">
@@ -23,14 +29,14 @@ function ProjectPlatforms(){
 
         <Heading fontWeight="extrabold" color="cyan.500" size="xl" 
         mr={isNotSmallerScreen ? "20" : "0"}>
-            Platform - Web Apps (ML)
+            Web Apps (ML)
         </Heading>
         <Spacer />
         
         <Box maxW="sm" borderWidth="8px" borderRadius="lg" 
         overflow="hidden" mr={isNotSmallerScreen ? "30" : "0"}
         mt={isNotSmallerScreen ? "0" : "10"}
-        onClick={() => window.open("https://rossman-streamlit.herokuapp.com/")} >
+        >
                 <Image src={rossman} alt='Rossman Sales' py ="3" px='3' />
 
                 <Box px='5'
@@ -46,6 +52,7 @@ function ProjectPlatforms(){
                 </Box>
 
                 <Box>
+                <Collapse startingHeight={30} in={show}>
                     <UnorderedList px='5' py = '3'>
                     <ListItem>
                     This project is a conversion of a Kaggle Competition (Rossman Sales)
@@ -56,23 +63,31 @@ function ProjectPlatforms(){
                     The web app focuses on Data Analytics, Prediciton and is hosted on heroku.
                     </ListItem>
                     </UnorderedList>
+                    </Collapse>
+                    <Center>
+                    <Button size="sm" onClick={handleToggle} mt="1rem">
+                    Show {show ? "Less" : "More"}
+                    </Button>
+                    </Center>
                 </Box>
 
-                <Box px = {isNotSmallerScreen ? "110" : "8"}
+                <Box px = {isNotSmallerScreen ? "0" : "8"}
                 py = '3'>
+                <Center>
                 <HStack spacing={isNotSmallerScreen ? "10" : "8"}>
                     <Icon as = {FaGithub} boxSize={isNotSmallerScreen ? "8" : "8"} 
                     onClick={() => window.open("https://github.com/architsharmaa/Sales-Analyses-and-Prediction-App-using-Streamlit")}/>
                     <Icon as ={FaLink} boxSize={isNotSmallerScreen ? "8" : "8"} 
                     onClick={() => window.open("https://rossman-streamlit.herokuapp.com/")}/>
                 </HStack>
+                </Center>
                 </Box>         
         </Box>
     
         <Box maxW="sm" borderWidth="8px" borderRadius="lg" 
-        overflow="hidden" mr={isNotSmallerScreen ? "30" : "0"}
+        overflow="hidden" mr={isNotSmallerScreen ? "178" : "0"}
         mt={isNotSmallerScreen ? "0" : "10"}
-        onClick={() => window.open("https://github.com/deepklarity/clean-or-messy")} >
+         >
                 <Image src={cleanmessy} alt='Clean vs Messy' py ="3" px='3' />
 
                 <Box px='5'
@@ -88,6 +103,7 @@ function ProjectPlatforms(){
                 </Box>
 
                 <Box>
+                    <Collapse startingHeight={110} in={show}>
                     <UnorderedList px='5' py = '3'>
                     <ListItem>
                     The project attempts to classify a given image as clean or messy. 
@@ -102,10 +118,17 @@ function ProjectPlatforms(){
                     and frontend is ReactJS and Streamlit.
                     </ListItem>
                     </UnorderedList>
+                    </Collapse>
+                    <Center>
+                    <Button size="sm" onClick={handleToggle} mt="1rem" >
+                    Show {show ? "Less" : "More"}
+                    </Button>
+                    </Center>
                 </Box>
 
                 <Box px = {isNotSmallerScreen ? "110" : "8"}
                 py = '1'>
+                <Center>
                 <HStack spacing={isNotSmallerScreen ? "10" : "8"}>
                     <Icon as = {FaGithub} boxSize={isNotSmallerScreen ? "8" : "8"} 
                     onClick={() => window.open("https://github.com/deepklarity/clean-or-messy")}/>
@@ -114,6 +137,7 @@ function ProjectPlatforms(){
                     <Icon as ={FaLink} boxSize={isNotSmallerScreen ? "8" : "8"} 
                     onClick={() => window.open("https://cleanvsmessy.herokuapp.com/")}/>
                 </HStack>
+                </Center>
                 </Box>         
         </Box>
     

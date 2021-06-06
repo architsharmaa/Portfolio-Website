@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMediaQuery } from '@chakra-ui/media-query';
 import { Box, Flex, Heading} from '@chakra-ui/layout';
-import { Spacer } from '@chakra-ui/react';
+import { Spacer, Collapse, Button,Center } from '@chakra-ui/react';
 import { ListItem, UnorderedList } from "@chakra-ui/react";
 import { Image } from '@chakra-ui/image';
 
@@ -10,6 +10,9 @@ import truck from '../assets/projectss/truck.jpeg';
 function Web(){
     
     const [isNotSmallerScreen] = useMediaQuery("(min-width:600px)");
+    const [show, setShow] = React.useState(false)
+    const handleToggle = () => setShow(!show)
+
  return(
 
     <Box alignSelf="flex-start" px="16" py="8">
@@ -24,9 +27,9 @@ function Web(){
         <Spacer />
         
         <Box maxW="sm" borderWidth="8px" borderRadius="lg" 
-        overflow="hidden"
+        overflow="hidden" mr={isNotSmallerScreen ? "590" : "0"}
         mt={isNotSmallerScreen ? "0" : "10"}
-        onClick={() => window.open("")} >
+         >
                 <Image src={truck} alt='StockInfo' py ="3" px='8' />
 
                 <Box px='5'
@@ -42,6 +45,8 @@ function Web(){
                 </Box>
 
                 <Box>
+
+                    <Collapse startingHeight={100} in={show}>
                     <UnorderedList px='5' py = '3'>
                     <ListItem>
                     A warehouse management platform that lets you check on the
@@ -54,6 +59,15 @@ function Web(){
                     is updated using Python Scraper.
                     </ListItem>
                     </UnorderedList>
+                    </Collapse>
+                    <Center>
+                    <Button size="sm" onClick={handleToggle} mt="1rem">
+                    Show {show ? "Less" : "More"}
+                    </Button>
+                    </Center>
+
+
+
                 </Box>
          
         </Box> 
