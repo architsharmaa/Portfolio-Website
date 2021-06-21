@@ -51,7 +51,7 @@ function WorkExp() {
                         </Heading>
                     </Box>
                     <Text fontSize="2xl">
-                    Analyst - Intern (Mar 2021 - June 2021)
+                    Data Associate - Intern (Mar 2021 - June 2021)
                     </Text>
                     <UnorderedList>
                     <ListItem>
